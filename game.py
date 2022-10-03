@@ -18,7 +18,7 @@ RED = (255, 0, 0)
 
 class Game(object):
     def __init__(self):
-        # Create a new font object
+        # Create a new font obeject
         self.font = pygame.font.Font(None, 65)
         # Create font for the score msg
         self.score_font = pygame.font.Font("kenvector_future.ttf", 20)
@@ -65,7 +65,8 @@ class Game(object):
             btn = Button(posX, posY, width, height, self.problem["result"])
             button_list.append(btn)
         else:
-            btn = Button(posX, posY, width, height, random.randint(0, 100))
+            btn = Button(posX, posY, width, height,
+                         random.randint(round(self.problem["result"] / 2), self.problem["result"] * 2 + 5))
             button_list.append(btn)
 
         posX = (SCREEN_WIDTH / 2) - (t_w / 2) + 150
@@ -74,7 +75,8 @@ class Game(object):
             btn = Button(posX, posY, width, height, self.problem["result"])
             button_list.append(btn)
         else:
-            btn = Button(posX, posY, width, height, random.randint(0, 100))
+            btn = Button(posX, posY, width, height,
+                         random.randint(round(self.problem["result"] / 2), self.problem["result"] * 2 + 5))
             button_list.append(btn)
 
         posX = (SCREEN_WIDTH / 2) - (t_w / 2)
@@ -84,7 +86,8 @@ class Game(object):
             btn = Button(posX, posY, width, height, self.problem["result"])
             button_list.append(btn)
         else:
-            btn = Button(posX, posY, width, height, random.randint(0, 100))
+            btn = Button(posX, posY, width, height,
+                         random.randint(round(self.problem["result"] / 2), self.problem["result"] * 2 + 5))
             button_list.append(btn)
 
         posX = (SCREEN_WIDTH / 2) - (t_w / 2) + 150
@@ -93,7 +96,8 @@ class Game(object):
             btn = Button(posX, posY, width, height, self.problem["result"])
             button_list.append(btn)
         else:
-            btn = Button(posX, posY, width, height, random.randint(0, 100))
+            btn = Button(posX, posY, width, height,
+                         random.randint(round(self.problem["result"] / 2), self.problem["result"] * 2 + 5))
             button_list.append(btn)
 
         return button_list
@@ -161,7 +165,7 @@ class Game(object):
         quotient = dividend / divisor
         self.problem["num1"] = dividend
         self.problem["num2"] = divisor
-        self.problem["result"] = quotient
+        self.problem["result"] = round(quotient)
         self.operation = "division"
 
     def check_result(self):
