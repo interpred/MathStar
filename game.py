@@ -36,7 +36,7 @@ class Game(object):
         self.reset_problem = False
         # Create menu
         items = ("Addition", "Subtraction", "Multiplication", "Division")
-        self.menu = Menu(items, ttf_font="XpressiveBlack Regular.ttf", font_size=50)
+        self.menu = Menu(items, ttf_font="ahronbd.ttf", font_size=50)
         # True: show menu
         self.show_menu = True
         # create the score counter
@@ -44,7 +44,7 @@ class Game(object):
         # Count the number of problems
         self.count = 0
         # load background image
-        self.background_image = pygame.image.load("background.jpg").convert()
+        self.background_image = pygame.image.load("./mathstar/mathstar.001.jpeg").convert()
         # load sounds effects
         self.sound_1 = pygame.mixer.Sound("item1.ogg")
         self.sound_2 = pygame.mixer.Sound("item2.ogg")
