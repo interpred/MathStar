@@ -43,7 +43,7 @@ class Game(object):
         self.score = 0
         # Count the number of problems
         self.count = 0
-        # load background image
+        # load background image a
         self.background_image = pygame.image.load("./mathstar/mathstar.001.jpeg").convert()
         # load sounds effects
         self.sound_1 = pygame.mixer.Sound("item1.ogg")
