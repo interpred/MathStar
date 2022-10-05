@@ -46,8 +46,8 @@ class Game(object):
         # load background image a
         self.background_image = pygame.image.load("./mathstar/mathstar.001.jpeg").convert()
         # load sounds effects
-        self.sound_1 = pygame.mixer.Sound("item1.ogg")
-        self.sound_2 = pygame.mixer.Sound("item2.ogg")
+        self.sound_1 = pygame.mixer.Sound("celebrate-richard.ogg")
+        self.sound_2 = pygame.mixer.Sound("sad-richard.ogg")
 
     def get_button_list(self):
         """ Return a list with four buttons """
