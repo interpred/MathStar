@@ -46,8 +46,10 @@ class Game(object):
         # load background image a
         self.background_image = pygame.image.load("./mathstar/mathstar.001.jpeg").convert()
         # load sounds effects
-        self.sound_1 = pygame.mixer.Sound("celebrate-richard.ogg")
-        self.sound_2 = pygame.mixer.Sound("sad-richard.ogg")
+        self.sound_1r = pygame.mixer.Sound("celebrate-richard.ogg")
+        self.sound_1t = pygame.mixer.Sound("celebrate-terence.ogg")
+        self.sound_2r = pygame.mixer.Sound("sad-richard.ogg")
+        self.sound_2t = pygame.mixer.Sound("sad-terence.ogg")
 
     def get_button_list(self):
         """ Return a list with four buttons """
@@ -178,12 +180,18 @@ class Game(object):
                     # increase score
                     self.score += 5
                     # Play sound effect
-                    self.sound_1.play()
+                    if random.randint(1, 2) == 1:
+                        self.sound_1r.play()
+                    else:
+                        self.sound_1t.play()
                 else:
                     # set color to red when incorrect
                     button.set_color(RED)
                     # play sound effect
-                    self.sound_2.play()
+                    if random.randint(1, 2) == 1:
+                        self.sound_2r.play()
+                    else:
+                        self.sound_2t.play()
                 # Set reset_problem True so it can go to the
                 # next problem
                 # we'll use reset_problem in display_frame to wait
