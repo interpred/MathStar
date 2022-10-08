@@ -43,6 +43,8 @@ class Game(object):
         self.score = 0
         # Count the number of problems
         self.count = 0
+        # flag for a new problem not answered
+        self.answered = 0
         # load background image a
         self.background_image = pygame.image.load("./mathstar/mathstar.001.jpeg").convert()
         # load sounds effects
@@ -173,7 +175,7 @@ class Game(object):
     def check_result(self):
         """ Check the result """
         for button in self.button_list:
-            if button.isPressed():
+            if button.isPressed() and not self.answered:
                 if button.get_number() == self.problem["result"]:
                     # set color to green when correct
                     button.set_color(GREEN)
@@ -192,6 +194,7 @@ class Game(object):
                         self.sound_2r.play()
                     else:
                         self.sound_2t.play()
+                self.answered = 1
                 # Set reset_problem True so it can go to the
                 # next problem
                 # we'll use reset_problem in display_frame to wait
@@ -315,6 +318,7 @@ class Game(object):
             self.set_problem()
             # Increase count by 1
             self.count += 1
+            self.answered = 0
             self.reset_problem = False
         elif time_wait:
             # wait three seconds
